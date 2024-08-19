@@ -1,25 +1,9 @@
-[package]
-edition = "2021"
-name    = "napi-example"
-version = "0.1.0"
+[workspace]
+members = ["node-binding", "algo"]
+resolover = "2"
 
-
-[lib]
-crate-type = ["cdylib"]
-
-[dependencies]
-algo        = { workspace = true }
-napi        = { version = "2", no-defaults = true, features = ["full"] }
-napi-derive = "2"
-
-[build-dependencies]
-napi-build = "2"
+[workspace.dependencies]
+algo = { path = "algo" }
 
 [profile.release]
 lto = true
-
-[workspace]
-members = [".", "algo"]
-
-  [workspace.dependencies]
-  algo = { path = "algo" }
